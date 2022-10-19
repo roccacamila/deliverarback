@@ -32,15 +32,23 @@ public class ConectarRabbit {
 		return factory.newConnection();
 	}
 	
-	public void enviarMensaje(String exchange, String routingKey, String mensaje) throws IOException {
-		channel.exchangeDeclare(exchange, "direct", true);
+	public void enviarMensaje(String exchange, String mensaje) throws IOException {
 		byte[] messageBodyBytes = mensaje.getBytes();
-		channel.basicPublish(exchange, routingKey, null, messageBodyBytes);
+		channel.basicPublish(exchange, "", null, messageBodyBytes);
+	}
+	
+	public void broadcast(String mensaje) throws IOException {
+		byte[] messageBodyBytes = mensaje.getBytes();
+		channel.basicPublish("broadcast", "", null, messageBodyBytes);
 	}
 	
 	public void cerrarConexion() throws IOException, TimeoutException {
 		channel.close();
 		conn.close();
+	}
+
+	public void bind(String exchange, String queue) throws IOException {
+		channel.queueBind(queue, exchange, "");
 	}
 }
 

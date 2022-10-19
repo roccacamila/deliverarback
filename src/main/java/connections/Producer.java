@@ -14,9 +14,15 @@ public class Producer {
 		this.conector = new ConectarRabbit();
 	}
 	
-	public void enviarMensaje(String exchange, String routingKey, String mensaje) throws KeyManagementException, NoSuchAlgorithmException, URISyntaxException, IOException, TimeoutException {
+	public void enviarMensaje(String exchange,String mensaje) throws KeyManagementException, NoSuchAlgorithmException, URISyntaxException, IOException, TimeoutException {
 		conector.comenzarConexion();
-		conector.enviarMensaje(exchange, routingKey, mensaje);
+		conector.enviarMensaje(exchange, mensaje);
+		conector.cerrarConexion();
+	}
+	
+	public void broadcast(String mensaje) throws KeyManagementException, NoSuchAlgorithmException, URISyntaxException, IOException, TimeoutException {
+		conector.comenzarConexion();
+		conector.broadcast(mensaje);
 		conector.cerrarConexion();
 	}
 }

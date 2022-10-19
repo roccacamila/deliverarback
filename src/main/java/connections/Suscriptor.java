@@ -36,7 +36,7 @@ public class Suscriptor {
 
 	public Object consumirPush(String queueName, boolean autoAck) throws IOException, KeyManagementException, NoSuchAlgorithmException, URISyntaxException, TimeoutException {
 		final Channel channel = conector.comenzarConexion();
-		return channel.basicConsume(queueName, autoAck, "cliente",
+		return channel.basicConsume(queueName, autoAck, "proveedor",
 		     new DefaultConsumer(channel) {
 		         @Override
 		         public void handleDelivery(String consumerTag,
@@ -50,7 +50,7 @@ public class Suscriptor {
 		             properties.toString();
 		             long deliveryTag = envelope.getDeliveryTag();
 		             String message = new String(body, "UTF-8");
-		             System.out.println(message);
+		             System.out.println(deliveryTag);
 		             listener.sendToTopicGreetings(new Mensaje("Queue: "+queueName+ " - Message: "+message));
 		             channel.basicAck(deliveryTag, false);
 		         }

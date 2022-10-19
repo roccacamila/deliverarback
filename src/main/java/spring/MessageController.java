@@ -16,20 +16,20 @@ public class MessageController {
 	@SendTo("/topic/user")
 	public Mensaje cliente() throws Exception {
 		Controlador.getInstancia().suscribe("cliente", "cliente", listener);
-	    return new Mensaje("Suscripto a cliente");
+	    return new Mensaje("Conectado como cliente");
 	}
 	
 	@MessageMapping("/suscribeproveedor")
 	@SendTo("/topic/user")
 	public Mensaje proveedor() throws Exception {
 		Controlador.getInstancia().suscribe("proveedor", "cliente", listener);
-	    return new Mensaje("Suscripto a proveedor");
+	    return new Mensaje("Conectado como proveedor");
 	}
 	
 	@MessageMapping("/suscriberepartidor")
 	@SendTo("/topic/user")
 	public Mensaje repartidor() throws Exception {
 		Controlador.getInstancia().suscribe("repartidor", "cliente", listener);
-	    return new Mensaje("Suscripto a repartidor");
+	    return new Mensaje("Conectado como  repartidor");
 	}
 }

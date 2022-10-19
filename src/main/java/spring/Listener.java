@@ -11,7 +11,7 @@ public class Listener {
 	private SimpMessagingTemplate template;
 	 
 	public void sendToTopicGreetings(Mensaje greeting) {
-	      template.convertAndSend("/topic/cliente", greeting);
+	      template.convertAndSend("/topic/user", greeting);
 	  }
 
 }

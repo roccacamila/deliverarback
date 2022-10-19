@@ -14,7 +14,7 @@ import com.rabbitmq.client.Envelope;
 import spring.Listener;
 import spring.Mensaje;
 
-public class Consumidor {
+public class Suscriptor {
 	
 	private ConectarRabbit conector;
 	private Channel canal;
@@ -23,12 +23,12 @@ public class Consumidor {
 	
 
 	
-	public Consumidor(String consumerTag) {
+	public Suscriptor(String consumerTag) {
 		this.conector = new ConectarRabbit();
 		this.consumerTag = consumerTag;
 	}
 	
-	public Consumidor(String tag, Listener listener) {
+	public Suscriptor(String tag, Listener listener) {
 		this.conector = new ConectarRabbit();
 		this.consumerTag = tag;
 		this.listener = listener;
@@ -51,7 +51,7 @@ public class Consumidor {
 		             long deliveryTag = envelope.getDeliveryTag();
 		             String message = new String(body, "UTF-8");
 		             System.out.println(message);
-		             listener.sendToTopicGreetings(new Mensaje(message));
+		             listener.sendToTopicGreetings(new Mensaje("Queue: "+queueName+ " - Message: "+message));
 		             channel.basicAck(deliveryTag, false);
 		         }
 		     });

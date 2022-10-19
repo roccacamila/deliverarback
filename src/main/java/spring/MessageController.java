@@ -13,9 +13,23 @@ public class MessageController {
 	public Listener listener;
 	
 	@MessageMapping("/suscribecliente")
-	@SendTo("/topic/cliente")
+	@SendTo("/topic/user")
 	public Mensaje cliente() throws Exception {
-		Controlador.getInstancia().consumirPush("cliente", "cliente", listener);
-	    return new Mensaje("Consumiendo de cliente");
+		Controlador.getInstancia().suscribe("cliente", "cliente", listener);
+	    return new Mensaje("Suscripto a cliente");
+	}
+	
+	@MessageMapping("/suscribeproveedor")
+	@SendTo("/topic/user")
+	public Mensaje proveedor() throws Exception {
+		Controlador.getInstancia().suscribe("proveedor", "cliente", listener);
+	    return new Mensaje("Suscripto a proveedor");
+	}
+	
+	@MessageMapping("/suscriberepartidor")
+	@SendTo("/topic/user")
+	public Mensaje repartidor() throws Exception {
+		Controlador.getInstancia().suscribe("repartidor", "cliente", listener);
+	    return new Mensaje("Suscripto a repartidor");
 	}
 }

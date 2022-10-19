@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Hello WebSocket</title>
+    <title>Cliente Web Socket</title>
     <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/main.css" rel="stylesheet">
     <script src="/webjars/jquery/jquery.min.js"></script>
@@ -25,13 +25,31 @@
                 </div>
             </form>
         </div>
+        <br/>
         <div class="col-md-6">
             <form class="form-inline">
                 <div class="form-group">
-                    <label for="name">What is your name?</label>
-                    <input type="text" id="name" class="form-control" placeholder="Your name here...">
+                    <label for="name">Suscribirse a clientes:</label>
                 </div>
-                <button id="send" class="btn btn-default" type="submit">Send</button>
+                <button id="sendCliente" class="btn btn-default" type="submit">Suscribe</button>
+            </form>
+        </div>
+         <br/>
+        <div class="col-md-6">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="name">Suscribirse a proveedores:</label>
+                </div>
+                <button id="sendProveedor" class="btn btn-default" type="submit">Suscribe</button>
+            </form>
+        </div>
+         <br/>
+        <div class="col-md-6">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="name">Suscribirse a repartidores:</label>
+                </div>
+                <button id="sendRepartidor" class="btn btn-default" type="submit">Suscribe</button>
             </form>
         </div>
     </div>
@@ -40,7 +58,7 @@
             <table id="conversation" class="table table-striped">
                 <thead>
                 <tr>
-                    <th>Greetings</th>
+                    <th>Mensajes</th>
                 </tr>
                 </thead>
                 <tbody id="greetings">

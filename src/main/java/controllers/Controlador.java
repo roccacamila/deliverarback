@@ -5,14 +5,14 @@ import java.net.URISyntaxException;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.util.concurrent.TimeoutException;
-import connections.Consumidor;
+import connections.Suscriptor;
 import connections.Producer;
 import spring.Listener;
 
 public class Controlador {
 
 	private Producer producer;
-	private Consumidor consumer;
+	private Suscriptor suscriptor;
 	
 	private static Controlador instancia;
 	
@@ -32,8 +32,8 @@ public class Controlador {
 		System.out.println("Enviado");
 	}
 	
-	public Object consumirPush(String queue, String tag, Listener listener) throws KeyManagementException, NoSuchAlgorithmException, IOException, URISyntaxException, TimeoutException { //el tag es lo que identifica al consumer, ser�a cliente, proveedor, repartidor, etc.
-		this.consumer = new Consumidor(tag, listener);
-		return consumer.consumirPush(queue, false);
+	public Object suscribe(String queue, String tag, Listener listener) throws KeyManagementException, NoSuchAlgorithmException, IOException, URISyntaxException, TimeoutException { //el tag es lo que identifica al consumer, ser�a cliente, proveedor, repartidor, etc.
+		this.suscriptor = new Suscriptor(tag, listener);
+		return suscriptor.consumirPush(queue, false);
 	}
 }

@@ -18,8 +18,8 @@ function connect() {
     stompClient.connect({}, function (frame) {
         setConnected(true);
         console.log('Connected: ' + frame);
-        stompClient.subscribe('/topic/cliente', function (cliente) {
-            showGreeting(JSON.parse(cliente.body).content);
+        stompClient.subscribe('/topic/user', function (user) {
+            showGreeting(JSON.parse(user.body).content);
         });
     });
 }
@@ -32,8 +32,16 @@ function disconnect() {
     console.log("Disconnected");
 }
 
-function sendName() {
+function sendCliente() {
     stompClient.send("/app/suscribecliente");
+}
+
+function sendProveedor() {
+    stompClient.send("/app/suscribeproveedor");
+}
+
+function sendRepartidor() {
+    stompClient.send("/app/suscriberepartidor");
 }
 
 function showGreeting(message) {
@@ -46,5 +54,7 @@ $(function () {
     });
     $( "#connect" ).click(function() { connect(); });
     $( "#disconnect" ).click(function() { disconnect(); });
-    $( "#send" ).click(function() { sendName(); });
+    $( "#sendCliente" ).click(function() { sendCliente(); });
+	$( "#sendProveedor" ).click(function() { sendProveedor(); });
+	$( "#sendRepartidor" ).click(function() { sendRepartidor(); });
 });

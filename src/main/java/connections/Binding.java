@@ -19,5 +19,11 @@ private ConectarRabbit conector;
 		conector.bind(exchange, queue);
 		conector.cerrarConexion();
 	}
+	
+	public void unbind(String exchange, String queue) throws KeyManagementException, NoSuchAlgorithmException, URISyntaxException, IOException, TimeoutException {
+		conector.comenzarConexion();
+		conector.unbind(exchange, queue);
+		conector.cerrarConexion();
+	}
 
 }

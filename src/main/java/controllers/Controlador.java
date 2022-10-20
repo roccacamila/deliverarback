@@ -50,7 +50,7 @@ public class Controlador {
 		this.binder.bind(exchange, queue);
 	}
 
-	public List<String> getExchanges() {
-		return null;
+	public void unbind(String exchange, String queue) throws KeyManagementException, NoSuchAlgorithmException, URISyntaxException, IOException, TimeoutException {
+		this.binder.unbind(exchange, queue);
 	}
 }

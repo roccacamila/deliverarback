@@ -50,5 +50,9 @@ public class ConectarRabbit {
 	public void bind(String exchange, String queue) throws IOException {
 		channel.queueBind(queue, exchange, "");
 	}
+	
+	public void unbind(String exchange, String queue) throws IOException {
+		channel.queueUnbind(queue, exchange, "");
+	}
 }
 

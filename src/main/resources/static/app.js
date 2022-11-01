@@ -33,15 +33,15 @@ function disconnect() {
 }
 
 function sendCliente() {
-    stompClient.send("/app/suscribecliente");
+    stompClient.send("/app/cliente");
 }
 
 function sendProveedor() {
-    stompClient.send("/app/suscribeproveedor");
+    stompClient.send("/app/proveedor");
 }
 
 function sendRepartidor() {
-    stompClient.send("/app/suscriberepartidor");
+    stompClient.send("/app/repartidor");
 }
 
 function showGreeting(message) {

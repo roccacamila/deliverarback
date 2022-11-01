@@ -12,24 +12,70 @@ public class MessageController {
 	@Autowired
 	public Listener listener;
 	
-	@MessageMapping("/suscribecliente")
+	//Modulo 1
+	@MessageMapping("/cliente")
 	@SendTo("/topic/user")
 	public Mensaje cliente() throws Exception {
 		Controlador.getInstancia().suscribe("cliente", "cliente", listener);
 	    return new Mensaje("Conectado como cliente","core service");
 	}
 	
-	@MessageMapping("/suscribeproveedor")
+	//Modulo 2
+	@MessageMapping("/proveedor")
 	@SendTo("/topic/user")
 	public Mensaje proveedor() throws Exception {
-		Controlador.getInstancia().suscribe("proveedor", "cliente", listener);
+		Controlador.getInstancia().suscribe("proveedor", "proveedor", listener);
 	    return new Mensaje("Conectado como proveedor","core service");
 	}
 	
-	@MessageMapping("/suscriberepartidor")
+	//Modulo 3
+	@MessageMapping("/repartidor")
 	@SendTo("/topic/user")
 	public Mensaje repartidor() throws Exception {
-		Controlador.getInstancia().suscribe("repartidor", "cliente", listener);
+		Controlador.getInstancia().suscribe("repartidor", "repartidor", listener);
 	    return new Mensaje("Conectado como  repartidor","core service");
 	}
+	
+	//Modulo 4
+	@MessageMapping("/franquicia")
+	@SendTo("/topic/user")
+	public Mensaje franquicia() throws Exception {
+		Controlador.getInstancia().suscribe("franquicia", "franquicia", listener);
+	    return new Mensaje("Conectado como franquicia","core service");
+	}
+	
+	//Modulo 5
+	@MessageMapping("/partners")
+	@SendTo("/topic/user")
+	public Mensaje partners() throws Exception {
+		Controlador.getInstancia().suscribe("partners", "partners", listener);
+	    return new Mensaje("Conectado como partners","core service");
+	}
+	
+	//Modulo 6
+	@MessageMapping("/desarrolloInterno")
+	@SendTo("/topic/user")
+	public Mensaje desarrolloInterno() throws Exception {
+		Controlador.getInstancia().suscribe("desarrolloInterno", "desarrolloInterno", listener);
+		return new Mensaje("Conectado como desarrolloInterno","core service");
+	}
+	
+	//Modulo 7
+	@MessageMapping("/operador")
+	@SendTo("/topic/user")
+	public Mensaje operador() throws Exception {
+		Controlador.getInstancia().suscribe("operador", "operador", listener);
+		return new Mensaje("Conectado como operador","core service");
+	}
+	
+	//Modulo 8
+	@MessageMapping("/administrador")
+	@SendTo("/topic/user")
+	public Mensaje administrador() throws Exception {
+		Controlador.getInstancia().suscribe("administrador", "administrador", listener);
+		return new Mensaje("Conectado como administrador","core service");
+	}
+		
+	
+
 }

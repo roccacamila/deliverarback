@@ -51,7 +51,7 @@ public class Suscriptor {
 		             long deliveryTag = envelope.getDeliveryTag();
 		             String message = new String(body, "UTF-8");
 		             System.out.println(deliveryTag);
-		             listener.sendToTopicGreetings(new Mensaje("Queue: "+queueName+ " - Message: "+message));
+		             listener.sendToTopicGreetings(new Mensaje(message,routingKey));
 		             channel.basicAck(deliveryTag, false);
 		         }
 		     });

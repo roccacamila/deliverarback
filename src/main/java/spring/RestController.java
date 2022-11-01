@@ -41,7 +41,7 @@ public class RestController {
 	
 	//ENDPOINT 4
 	@CrossOrigin(origins="http://localhost:8080")
-	@PostMapping("/undbind")
+	@PostMapping("/unbind")
 	public void unbind(@RequestParam(name="canal") String exchange, @RequestParam(name="suscriptor") String queue) throws KeyManagementException, NoSuchAlgorithmException, URISyntaxException, IOException, TimeoutException  {
 		Controlador.getInstancia().unbind(exchange, queue);
 	}

@@ -2,17 +2,23 @@ package spring;
 
 public class Mensaje {
 
-	private String content;
+	private String contenido;
+	private String emisor;
 
 	public Mensaje() {
 	}
 
-	public Mensaje(String content) {
-		this.content = content;
+	public Mensaje(String contenido, String emisor) {
+		this.contenido = contenido;
+		this.emisor = emisor;
 	}
 
-	public String getContent() {
-		return content;
+	public String getContenido() {
+		return contenido;
+	}
+	
+	public String getEmisor() {
+		return emisor;
 	}
 
 }

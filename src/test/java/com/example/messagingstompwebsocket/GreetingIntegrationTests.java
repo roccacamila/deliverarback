@@ -73,7 +73,7 @@ public class GreetingIntegrationTests {
 					public void handleFrame(StompHeaders headers, Object payload) {
 						Mensaje greeting = (Mensaje) payload;
 						try {
-							assertEquals("Hello, Spring!", greeting.getContent());
+							assertEquals("Hello, Spring!", greeting.getContenido());
 						} catch (Throwable t) {
 							failure.set(t);
 						} finally {

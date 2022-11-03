@@ -10,6 +10,7 @@ import java.util.concurrent.TimeoutException;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import controllers.Controlador;
@@ -19,11 +20,18 @@ public class RestController {
 	
 	
 	//ENDPOINT 1
+	/*@CrossOrigin(origins="http://localhost:8080")
+	@PostMapping("/publicarMensaje")
+	/*public void publicarMensaje(@RequestParam(name="canal") String exchange, @RequestParam(name="mensaje") String mensaje) throws KeyManagementException, NoSuchAlgorithmException, URISyntaxException, IOException, TimeoutException  {
+		Controlador.getInstancia().enviarMensaje(exchange, mensaje);
+	}*/
+	
 	@CrossOrigin(origins="http://localhost:8080")
 	@PostMapping("/publicarMensaje")
-	public void publicarMensaje(@RequestParam(name="canal") String exchange, @RequestParam(name="mensaje") String mensaje) throws KeyManagementException, NoSuchAlgorithmException, URISyntaxException, IOException, TimeoutException  {
-		Controlador.getInstancia().enviarMensaje(exchange, mensaje);
+	public void publicarMensaje(@RequestParam(name="canal") String exchange,@RequestBody String mensaje) throws KeyManagementException, NoSuchAlgorithmException, URISyntaxException, IOException, TimeoutException  {
+		Controlador.getInstancia().enviarMensaje(exchange,mensaje);
 	}
+		
 	
 	//ENDPOINT 2
 	@CrossOrigin(origins="http://localhost:8080")

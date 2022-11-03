@@ -43,7 +43,7 @@ public class RestController {
 	//ENDPOINT 3
 	@CrossOrigin(origins="http://localhost:8080")
 	@PostMapping("/broadcast")
-	public void broadcast(@RequestParam(name="mensaje") String mensaje) throws KeyManagementException, NoSuchAlgorithmException, URISyntaxException, IOException, TimeoutException  {
+	public void broadcast(@RequestBody String mensaje) throws KeyManagementException, NoSuchAlgorithmException, URISyntaxException, IOException, TimeoutException  {
 		Controlador.getInstancia().broadcast(mensaje);
 	}
 	

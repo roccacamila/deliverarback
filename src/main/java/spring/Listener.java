@@ -21,28 +21,21 @@ public class Listener {
 		if (queue.equals("repartidor")) {
 		   template.convertAndSend("/topic/repartidor", greeting);
 		}
+		if (queue.equals("franquicia")) {
+			   template.convertAndSend("/topic/franquicia", greeting);
+			}
+		if (queue.equals("desarrolloInterno")) {
+			   template.convertAndSend("/topic/desarrolloInterno", greeting);
+			}
+		if (queue.equals("operador")) {
+			   template.convertAndSend("/topic/operador", greeting);
+			}
+		if (queue.equals("partners")) {
+			   template.convertAndSend("/topic/partners", greeting);
+			}
+		if (queue.equals("administrador")) {
+			   template.convertAndSend("/topic/administrador", greeting);
+			}
 	}
-	
-
-	/*
-	public void sendToTopicFranquicia(Mensaje greeting) {
-	      template.convertAndSend("/topic/franquicia", greeting);
-	  }
-
-	public void sendToTopicPartners(Mensaje greeting) {
-	      template.convertAndSend("/topic/partners", greeting);
-	  }
-	
-	public void sendToTopicDesarolloInterno(Mensaje greeting) {
-	      template.convertAndSend("/topic/desarrolloInterno", greeting);
-	  }
-	
-	public void sendToTopicOperador(Mensaje greeting) {
-	      template.convertAndSend("/topic/operador", greeting);
-	  }
-	
-	public void sendToTopicAdministrador(Mensaje greeting) {
-	      template.convertAndSend("/topic/franquicia", greeting);*/
-	  
 
 }

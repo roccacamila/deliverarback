@@ -14,7 +14,7 @@ public class MessageController {
 	
 	//Modulo 1
 	@MessageMapping("/cliente")
-	@SendTo("/topic/user")
+	@SendTo("/topic/cliente")
 	public Mensaje cliente() throws Exception {
 		Controlador.getInstancia().suscribe("cliente", "cliente", listener);
 		return new Mensaje("{\"mensaje\": \"Conectado como cliente\"}","core service");
@@ -22,7 +22,7 @@ public class MessageController {
 	
 	//Modulo 2
 	@MessageMapping("/proveedor")
-	@SendTo("/topic/user")
+	@SendTo("/topic/proveedor")
 	public Mensaje proveedor() throws Exception {
 		Controlador.getInstancia().suscribe("proveedor", "proveedor", listener);
 		return new Mensaje("{\"mensaje\": \"Conectado como proveedor\"}","core service");
@@ -30,7 +30,7 @@ public class MessageController {
 	
 	//Modulo 3
 	@MessageMapping("/repartidor")
-	@SendTo("/topic/user")
+	@SendTo("/topic/repartidor")
 	public Mensaje repartidor() throws Exception {
 		Controlador.getInstancia().suscribe("repartidor", "repartidor", listener);
 		return new Mensaje("{\"mensaje\": \"Conectado como repartidor\"}","core service");
@@ -38,7 +38,7 @@ public class MessageController {
 	
 	//Modulo 4
 	@MessageMapping("/franquicia")
-	@SendTo("/topic/user")
+	@SendTo("/topic/franquicia")
 	public Mensaje franquicia() throws Exception {
 		Controlador.getInstancia().suscribe("franquicia", "franquicia", listener);
 	    return new Mensaje("{\"mensaje\": \"Conectado como franquicia\"}","core service");
@@ -46,7 +46,7 @@ public class MessageController {
 	
 	//Modulo 5
 	@MessageMapping("/partners")
-	@SendTo("/topic/user")
+	@SendTo("/topic/partners")
 	public Mensaje partners() throws Exception {
 		Controlador.getInstancia().suscribe("partners", "partners", listener);
 		return new Mensaje("{\"mensaje\": \"Conectado como partners\"}","core service");
@@ -54,7 +54,7 @@ public class MessageController {
 	
 	//Modulo 6
 	@MessageMapping("/desarrolloInterno")
-	@SendTo("/topic/user")
+	@SendTo("/topic/desarrolloInterno")
 	public Mensaje desarrolloInterno() throws Exception {
 		Controlador.getInstancia().suscribe("desarrolloInterno", "desarrolloInterno", listener);
 		return new Mensaje("{\"mensaje\": \"Conectado como desarollo interno\"}","core service");
@@ -62,7 +62,7 @@ public class MessageController {
 	
 	//Modulo 7
 	@MessageMapping("/operador")
-	@SendTo("/topic/user")
+	@SendTo("/topic/operador")
 	public Mensaje operador() throws Exception {
 		Controlador.getInstancia().suscribe("operador", "operador", listener);
 		return new Mensaje("{\"mensaje\": \"Conectado como operador\"}","core service");
@@ -70,7 +70,7 @@ public class MessageController {
 	
 	//Modulo 8
 	@MessageMapping("/administrador")
-	@SendTo("/topic/user")
+	@SendTo("/topic/administrador")
 	public Mensaje administrador() throws Exception {
 		Controlador.getInstancia().suscribe("administrador", "administrador", listener);
 		return new Mensaje("{\"mensaje\": \"Conectado como administrador\"}","core service");
